@@ -1,14 +1,13 @@
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
-import mongoose from 'mongoose';
+import { connectToDatabase } from './config/database';
 import apiRouter from './routes';
 
 dotenv.config();
 
 const app = express();
 const port = 8000;
-const mongoUri = process.env.MONGO_URI ?? 'mongodb://127.0.0.1:27017/octofit_db';
 
 const codespaceName = process.env.CODESPACE_NAME;
 const baseUrl = codespaceName
@@ -32,7 +31,7 @@ app.use('/api', apiRouter);
 
 async function startServer(): Promise<void> {
   try {
-    await mongoose.connect(mongoUri, { dbName: 'octofit_db' });
+    await connectToDatabase();
     app.listen(port, () => {
       console.log(`OctoFit backend running on port ${port}`);
       console.log(`API base URL: ${apiBaseUrl}`);
