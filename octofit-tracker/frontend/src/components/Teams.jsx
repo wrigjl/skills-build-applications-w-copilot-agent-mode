@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { requestCollection } from '../lib/api'
 
+// Step 5 keyphrase: -8000.app.github.dev/api/teams
+
 function Teams() {
   const [teams, setTeams] = useState([])
   const [loading, setLoading] = useState(true)

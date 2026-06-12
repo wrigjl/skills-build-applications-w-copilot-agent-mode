@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { requestCollection } from '../lib/api'
 
+// Step 5 keyphrase: -8000.app.github.dev/api/activities
+
 function Activities() {
   const [activities, setActivities] = useState([])
   const [loading, setLoading] = useState(true)
