@@ -12,7 +12,7 @@ const port = 8000;
 const codespaceName = process.env.CODESPACE_NAME;
 const baseUrl = codespaceName
   ? `https://${codespaceName}-8000.app.github.dev`
-  : `http://localhost:${port}`;
+  : 'http://localhost:8000';
 const apiBaseUrl = `${baseUrl}/api`;
 
 app.use(cors());
